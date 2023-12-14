@@ -1,0 +1,17 @@
+<html>
+<head>
+      <title>GooseRunners Home</title>
+      <link rel="icon" type="image/png" href="images/favicon.png">
+	      <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Welcome to the GooseRunners website!</h1>
+    <p>This is a game created from Unity.</p>
+
+<button id="dark-mode-toggle">Toggle Dark Mode</button>
+
+	<script src="script.js"></script>
+
+</body>
+</html>
