@@ -7,18 +7,8 @@
 </head>
 <body>
 
-  <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $to = $_POST["email"];
-      $subject = "Welcome to Cat Games";
-      $message = "Thank you for signing up for Cat Games! Enjoy your gaming experience.";
-      $headers = "From: catgamesofficialcompany@gmail.com";
 
-      mail($to, $subject, $message, $headers);
-    }
-  ?>
-
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+  <form action="signup.php" method="post">
     <label for="email">Enter your email:</label>
     <input type="email" id="email" name="email" required><br><br>
 
