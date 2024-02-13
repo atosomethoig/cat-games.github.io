@@ -3,5 +3,5 @@ function saveToFile() {
 
   var blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
 
-  saveAs(blob, 'data.txt');
+  saveAs(blob, 'created_users.txt');
 }
