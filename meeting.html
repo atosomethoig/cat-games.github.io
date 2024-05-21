@@ -10,32 +10,40 @@
 </head>
 <body>
     <button id="startMeeting">Start Meeting</button>
+    <button id="endMeeting">End Meeting</button>
     <p id="meetingInfo"></p>
 
     <script>
         const startButton = document.getElementById("startMeeting");
+        const endButton = document.getElementById("endMeeting");
         const meetingInfo = document.getElementById("meetingInfo");
+        let meetingStarted = false;
+        let startDate;
 
         // Event listener for the "Start Meeting" button
         startButton.addEventListener("click", () => {
-            const startDate = new Date(); // Get the current date and time
-            const formattedDate = startDate.toLocaleString(); // Format the date as a string
+            if (!meetingStarted) {
+                startDate = new Date(); // Get the current date and time
+                meetingStarted = true;
+                const formattedDate = startDate.toLocaleString(); // Format the date as a string
+                meetingInfo.textContent = `Meeting started on: ${formattedDate}`;
+            }
+        });
 
-            // Display the meeting date and time
-            meetingInfo.textContent = `Meeting started on: ${formattedDate}`;
-
-            // Update the elapsed time every second
-            setInterval(() => {
-                const currentTime = new Date();
-                const elapsedMilliseconds = currentTime - startDate;
+        // Event listener for the "End Meeting" button
+        endButton.addEventListener("click", () => {
+            if (meetingStarted) {
+                const endDate = new Date();
+                const elapsedMilliseconds = endDate - startDate;
                 const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
                 const elapsedMinutes = Math.floor(elapsedSeconds / 60);
                 const elapsedHours = Math.floor(elapsedMinutes / 60);
 
                 // Format the elapsed time
                 const elapsedTime = `${elapsedHours}h ${elapsedMinutes % 60}m ${elapsedSeconds % 60}s`;
-                meetingInfo.textContent = `Meeting started on: ${formattedDate} (Elapsed time: ${elapsedTime})`;
-            }, 1000); // Update every second
+                meetingInfo.textContent = `Meeting ended on: ${endDate.toLocaleString()} (Elapsed time: ${elapsedTime})`;
+                meetingStarted = false;
+            }
         });
     </script>
 </body>
