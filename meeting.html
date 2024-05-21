@@ -19,6 +19,7 @@
         const meetingInfo = document.getElementById("meetingInfo");
         let meetingStarted = false;
         let startDate;
+        let intervalId; // Store the interval ID
 
         // Event listener for the "Start Meeting" button
         startButton.addEventListener("click", () => {
@@ -35,7 +36,7 @@
                 startButton.textContent = "Start Meeting"; // Reset button text
 
                 // Update elapsed time every second
-                setInterval(() => {
+                intervalId = setInterval(() => {
                     const currentTime = new Date();
                     const elapsedMilliseconds = currentTime - startDate;
                     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
@@ -52,6 +53,7 @@
         // Event listener for the "End Meeting" button
         endButton.addEventListener("click", () => {
             if (meetingStarted) {
+                clearInterval(intervalId); // Clear the interval
                 const endDate = new Date();
                 const elapsedMilliseconds = endDate - startDate;
                 const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
