@@ -32,7 +32,7 @@
                 const etaMinutes = 30; // Example: Set the ETA to 30 minutes
                 const etaDate = new Date(startDate.getTime() + etaMinutes * 60000); // Add ETA in milliseconds
                 const formattedEta = etaDate.toLocaleTimeString(); // Format ETA time
-                startButton.textContent = `Start Meeting (ETA: ${formattedEta})`;
+                startButton.textContent = "Start Meeting"; // Reset button text
 
                 // Update elapsed time every second
                 setInterval(() => {
@@ -62,7 +62,6 @@
                 const elapsedTime = `${elapsedHours}h ${elapsedMinutes % 60}m ${elapsedSeconds % 60}s`;
                 meetingInfo.textContent = `Meeting ended on: ${endDate.toLocaleString()} (Elapsed time: ${elapsedTime})`;
                 meetingStarted = false;
-                startButton.textContent = "Start Meeting"; // Reset button text
             }
         });
     </script>
