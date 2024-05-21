@@ -33,6 +33,19 @@
                 const etaDate = new Date(startDate.getTime() + etaMinutes * 60000); // Add ETA in milliseconds
                 const formattedEta = etaDate.toLocaleTimeString(); // Format ETA time
                 startButton.textContent = `Start Meeting (ETA: ${formattedEta})`;
+
+                // Update elapsed time every second
+                setInterval(() => {
+                    const currentTime = new Date();
+                    const elapsedMilliseconds = currentTime - startDate;
+                    const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+                    const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+                    const elapsedHours = Math.floor(elapsedMinutes / 60);
+
+                    // Format the elapsed time
+                    const elapsedTime = `${elapsedHours}h ${elapsedMinutes % 60}m ${elapsedSeconds % 60}s`;
+                    meetingInfo.textContent = `Meeting started on: ${formattedDate} (Elapsed time: ${elapsedTime})`;
+                }, 1000); // Update every second
             }
         });
 
