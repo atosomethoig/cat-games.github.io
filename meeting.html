@@ -11,6 +11,7 @@
 <body>
     <button id="startMeeting">Start Meeting</button>
     <button id="endMeeting">End Meeting</button>
+    <button id="refreshButton">Refresh</button>
     <p id="meetingInfo"></p>
 
     <script>
@@ -66,6 +67,11 @@
                 meetingStarted = false;
             }
         });
+
+        refreshButton.addEventListener("click", () => {
+            location.reload();
+        };    
+            
     </script>
 </body>
 </html>
