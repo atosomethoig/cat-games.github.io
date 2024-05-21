@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Page</title>
+    <style>
+        /* Add any custom styling here */
+    </style>
+</head>
+<body>
+    <button id="startMeeting">Start Meeting</button>
+    <p id="meetingInfo"></p>
+
+    <script>
+        const startButton = document.getElementById("startMeeting");
+        const meetingInfo = document.getElementById("meetingInfo");
+
+        // Event listener for the "Start Meeting" button
+        startButton.addEventListener("click", () => {
+            const startDate = new Date(); // Get the current date and time
+            const formattedDate = startDate.toLocaleString(); // Format the date as a string
+
+            // Display the meeting date and time
+            meetingInfo.textContent = `Meeting started on: ${formattedDate}`;
+
+            // Update the elapsed time every second
+            setInterval(() => {
+                const currentTime = new Date();
+                const elapsedMilliseconds = currentTime - startDate;
+                const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+                const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+                const elapsedHours = Math.floor(elapsedMinutes / 60);
+
+                // Format the elapsed time
+                const elapsedTime = `${elapsedHours}h ${elapsedMinutes % 60}m ${elapsedSeconds % 60}s`;
+                meetingInfo.textContent = `Meeting started on: ${formattedDate} (Elapsed time: ${elapsedTime})`;
+            }, 1000); // Update every second
+        });
+    </script>
+</body>
+</html>
