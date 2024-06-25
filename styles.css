@@ -9,6 +9,7 @@ body.dark-mode {
     align-items: center;
     font-family: Arial, sans-serif;
     color: white;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Global styles */
@@ -22,6 +23,7 @@ body {
     align-items: center;
     font-family: Arial, sans-serif;
     color: black;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Button container styles */
