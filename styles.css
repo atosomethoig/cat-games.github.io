@@ -9,12 +9,12 @@ body.dark-mode {
     align-items: center;
     font-family: Arial, sans-serif;
     color: white;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 1s ease, color 0.3s ease;
 }
 
 /* Global styles */
 body {
-    background: linear-gradient(to right, #f0f0f0, #ffffff));
+    background: linear-gradient(to right, grey, white));
     height: 100vh;
     margin: 0;
     display: flex;
@@ -23,7 +23,7 @@ body {
     align-items: center;
     font-family: Arial, sans-serif;
     color: black;
-    transition: background 0.5s ease-in-out, color 0.3s ease;
+    transition: background 1s ease-in-out, color 0.3s ease;
 }
 
 /* Button container styles */
