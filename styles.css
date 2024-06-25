@@ -13,7 +13,7 @@ body.dark-mode {
 
 /* Global styles */
 body {
-    background: linear-gradient(to right, green, blue);
+    background: linear-gradient(to right, red, white);
     height: 100vh;
     margin: 0;
     display: flex;
